@@ -23,5 +23,13 @@ for movie in movie_data:
     to_lst = crud.create_movie(t, o, r, p)
     movies_in_db.append(to_lst)
 
-model.db.session.add_all(movies_in_db)
+users_in_db = []
+for n in range(10):
+    email = f'email{n}@test.com'
+    password = 'test'
+
+    to_lst = crud.create_user(email, password)
+    users_in_db.append(to_lst)
+
+model.db.session.add_all(movies_in_db + users_in_db)
 model.db.session.commit()
