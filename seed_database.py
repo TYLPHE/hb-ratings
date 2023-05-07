@@ -31,5 +31,10 @@ for n in range(10):
     to_lst = crud.create_user(email, password)
     users_in_db.append(to_lst)
 
+    for n in range(10):
+        crud.create_rating(random.randint(1, 5), to_lst, random.choice(movies_in_db))
+
+ratings_in_db = []
+
 model.db.session.add_all(movies_in_db + users_in_db)
 model.db.session.commit()
