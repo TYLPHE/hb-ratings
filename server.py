@@ -100,6 +100,14 @@ def add_rating(user_id):
     
     return redirect(f'/users/{user_id}')
 
+@app.route('/logout')
+def logout():
+    """ logs the user out and redirects to homepage """
+
+    session.pop('user_id', None)
+    
+    return redirect('/')
+
 
 if __name__ == "__main__":
     connect_to_db(app)

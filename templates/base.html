@@ -12,6 +12,7 @@
   <body>
     {% if session.get('user_id') %}
       <p>Logged in as {{ session['user_id'] }}</p>
+      <form action="/logout"><button>Log out</button></form>
     {% endif %}
     {% for msg in get_flashed_messages() %}
       <p class="flash-msg">{{ msg }}</p>
